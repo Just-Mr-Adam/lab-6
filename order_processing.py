@@ -71,4 +71,14 @@ def process_checkout(request: dict) -> dict:
         "tax": tax,
         "total": total,
         "items_count": len(items),
-    } 
+    }
+
+def validate_request(user_id, items):
+    if user_id is None:
+        raise ValueError("user_id is required")
+    if items is None:
+        raise ValueError("items is required")
+    if not isinstance(items, list):
+        raise ValueError("items must be a list")
+    if len(items) == 0:
+        raise ValueError("items must not be empty")
