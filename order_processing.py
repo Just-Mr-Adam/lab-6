@@ -90,3 +90,8 @@ def validate_item(item):
         raise ValueError("price must be positive")
     if item["qty"] <= 0:
         raise ValueError("qty must be positive")
+
+def calculate_subtotal(items):
+    return sum(item["price"] * item["qty"] for item in items)
+
+
