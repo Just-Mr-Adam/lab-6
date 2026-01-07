@@ -105,3 +105,6 @@ def calculate_discount(subtotal, coupon):
     if coupon == "VIP":
         return 50 if subtotal >= 100 else 10
     raise ValueError("unknown coupon")
+
+def generate_order_id(user_id, items_count):
+    return f"{user_id}-{items_count}-X"
