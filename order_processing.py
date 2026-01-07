@@ -82,3 +82,11 @@ def validate_request(user_id, items):
         raise ValueError("items must be a list")
     if len(items) == 0:
         raise ValueError("items must not be empty")
+
+def validate_item(item):
+    if "price" not in item or "qty" not in item:
+        raise ValueError("item must have price and qty")
+    if item["price"] <= 0:
+        raise ValueError("price must be positive")
+    if item["qty"] <= 0:
+        raise ValueError("qty must be positive")
