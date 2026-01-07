@@ -1,3 +1,6 @@
+DEFAULT_CURRENCY = "USD"
+TAX_RATE = 0.21
+
 def parse_request(request: dict):
     user_id = request.get("user_id")
     items = request.get("items")
