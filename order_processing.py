@@ -95,3 +95,13 @@ def calculate_subtotal(items):
     return sum(item["price"] * item["qty"] for item in items)
 
 
+def calculate_discount(subtotal, coupon):
+    if not coupon:
+        return 0
+    if coupon == "SAVE10":
+        return int(subtotal * 0.10)
+    if coupon == "SAVE20":
+        return int(subtotal * 0.20) if subtotal >= 200 else int(subtotal * 0.05)
+    if coupon == "VIP":
+        return 50 if subtotal >= 100 else 10
+    raise ValueError("unknown coupon")
